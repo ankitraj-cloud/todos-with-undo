@@ -1,25 +1,25 @@
 # This Deployment manifest defines:
-# - single-replica deployment of the container image, with label "app: node-hello-world"
+# - single-replica deployment of the container image, with label "app: todos-with-undo"
 # - Pod exposes port 8080
 # - specify PORT environment variable to the container process
-# Syntax reference https://kubernetes.io/docs/concepts/configuration/overview/
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: emoji-search
+  name: todos-with-undo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: emoji-search
+      app: todos-with-undo
   template:
     metadata:
       labels:
-        app: emoji-search
+        app: todos-with-undo
     spec:
       containers:
         - name: server
-          image: emoji-search
+          image: todos-with-undo
           ports:
           - containerPort: 3000
           env:
