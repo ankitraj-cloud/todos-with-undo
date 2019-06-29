@@ -1,0 +1,29 @@
+# This Deployment manifest defines:
+# - single-replica deployment of the container image, with label "app: node-hello-world"
+# - Pod exposes port 8080
+# - specify PORT environment variable to the container process
+# Syntax reference https://kubernetes.io/docs/concepts/configuration/overview/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emoji-search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emoji-search
+  template:
+    metadata:
+      labels:
+        app: emoji-search
+    spec:
+      containers:
+        - name: server
+          image: emoji-search
+          ports:
+          - containerPort: 3000
+          env:
+          - name: PORT
+            value: "3000"
+
+
